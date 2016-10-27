@@ -7,7 +7,6 @@ import org.board.domain.Criteria;
 import org.board.domain.SearchCriteria;
 
 
-
 public interface BoardService {
 
   public void regist(BoardVO board) throws Exception;
@@ -28,9 +27,5 @@ public interface BoardService {
       throws Exception;
 
   public int listSearchCount(SearchCriteria cri) throws Exception;
-  
-  
-  public List<String> getAttach(Integer bno)throws Exception;
-  
 
 }

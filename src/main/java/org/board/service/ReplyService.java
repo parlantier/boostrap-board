@@ -6,7 +6,6 @@ import org.board.domain.Criteria;
 import org.board.domain.ReplyVO;
 
 
-
 public interface ReplyService {
 
   public void addReply(ReplyVO vo) throws Exception;

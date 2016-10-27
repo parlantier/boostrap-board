@@ -94,3 +94,11 @@ alter table tbl_user add column
 alter table tbl_user 
   add column sessionlimit timestamp;
   
+  alter table tbl_message add constraint fk_usersender foreign key(sender) references tbl_user(uid); 
+  
+  
+  
+  
+  
+  
+  

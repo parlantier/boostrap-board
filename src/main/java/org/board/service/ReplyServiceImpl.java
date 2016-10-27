@@ -27,17 +27,6 @@ public class ReplyServiceImpl implements ReplyService {
     replyDAO.create(vo);
     boardDAO.updateReplyCnt(vo.getBno(), 1);
   }
-  
-  @Transactional
-  @Override
-  public void removeReply(Integer rno) throws Exception {
-
-    int bno = replyDAO.getBno(rno);
-    replyDAO.delete(rno);
-    boardDAO.updateReplyCnt(bno, -1);
-  }   
-
-
 
   @Override
   public List<ReplyVO> listReply(Integer bno) throws Exception {
@@ -51,7 +40,14 @@ public class ReplyServiceImpl implements ReplyService {
     replyDAO.update(vo);
   }
 
+  @Transactional
+  @Override
+  public void removeReply(Integer rno) throws Exception {
 
+	int bno = replyDAO.getBno(rno);
+    replyDAO.delete(rno);
+    boardDAO.updateReplyCnt(bno, -1);
+  }
 
   @Override
   public List<ReplyVO> listReplyPage(Integer bno, Criteria cri) 
@@ -66,4 +62,7 @@ public class ReplyServiceImpl implements ReplyService {
     return replyDAO.count(bno);
   }
 
+  
+  
+  
 }

@@ -10,8 +10,6 @@ import org.board.domain.Criteria;
 import org.board.domain.PageMaker;
 import org.board.domain.ReplyVO;
 import org.board.service.ReplyService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,11 +25,9 @@ public class ReplyController {
   @Inject
   private ReplyService service;
 
-  private static Logger logger =
-		  LoggerFactory.getLogger(ReplyController.class);
   @RequestMapping(value = "", method = RequestMethod.POST)
   public ResponseEntity<String> register(@RequestBody ReplyVO vo) {
-	  logger.info("댓글저장");
+
     ResponseEntity<String> entity = null;
     try {
       service.addReply(vo);
